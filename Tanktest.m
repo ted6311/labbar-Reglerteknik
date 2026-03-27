@@ -84,3 +84,14 @@ plot(m1(:,1),m1(:,2));
 grid on;
 subplot(2,1,2)
 plot(Kreg,E);
+
+
+
+
+% Plot Arvarde h1 vs tid 
+sig = h1.getElement(1);   % hämta första signalen
+y = sig.Values.Data;      % själva värdena
+t = sig.Values.Time;      % tidsvektor
+
+figure; 
+plot(t, y)
