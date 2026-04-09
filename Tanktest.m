@@ -5,6 +5,8 @@ load tankdatany6V.mat
 
 
 
+%% Lab 1
+
 
 
 %V = [2; 3; 4; 5; 6; 7];
@@ -92,6 +94,43 @@ plot(Kreg,E);
 sig = h1.getElement(1);   % hämta första signalen
 y = sig.Values.Data;      % själva värdena
 t = sig.Values.Time;      % tidsvektor
-
+h1 = sig.Values.Data;
 figure; 
 plot(t, y)
+
+
+
+
+
+%% Lab 2
+
+u0 = 5.6;
+
+% upg. 7
+q0 = volymflode;
+g = 982;
+h_10, h_20 = 8;
+a = q0/sqrt(2*g*h_10);
+
+ 
+% Upg 8
+
+q = a*sqrt(2*g*H);
+
+A = Tvarsnitssarea;
+
+q_val = q(5);
+V_val = V(5);
+
+% upg 9 
+
+qDq =(q_val-q0)/(V_val-u0);
+
+T = 2*Tvarsnitssarea/a*sqrt(h_10/(2*g));
+K1 = 2*qDq*a*sqrt(h_10/(2*g));
+
+alfa =a/(2*A)*sqrt(2*g/(h_10));
+
+K12 = 1;
+
+u = v - u0;
