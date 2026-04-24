@@ -1,0 +1,23 @@
+K = 20;
+TI = 2.5;
+GP = tf(0.6, [10, 1]);
+Gv = -1.7/0.6;
+
+GR = tf([K*TI K], [TI 0]);
+GK = GR * GP;
+GTOT = feedback(GK, 1);
+
+S = (GP*Gv)/(1+GP*GR);
+S0 = tf(-1.7, [10 1]);
+
+TI1 = 10;
+GR1 = tf([K*TI1 K], [TI1 0]);
+GK1 = GR1 * GP;
+GTOT1 = feedback(GK1, 1);
+
+S1 = (GP*Gv)/(1+GP*GR1);
+
+t = 0:0.2:200;
+v = 5*sin(0.21*t);
+lsim(S0,S,S1,v,t);
+legend;
