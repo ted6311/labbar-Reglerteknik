@@ -109,7 +109,8 @@ u0 = 5.6;
 % upg. 7
 q0 = volymflode;
 g = 982;
-h_10, h_20 = 8;
+h_10 = 8;  
+h_20 = 8;
 a = q0/sqrt(2*g*h_10);
 
  
@@ -127,10 +128,12 @@ V_val = V(5);
 qDq =(q_val-q0)/(V_val-u0);
 
 T = 2*Tvarsnitssarea/a*sqrt(h_10/(2*g));
-K1 = 2*qDq*a*sqrt(h_10/(2*g));
+K1 = 2*qDq/a*sqrt(h_10/(2*g));
 
 alfa =a/(2*A)*sqrt(2*g/(h_10));
 
 K12 = 1;
 
 u = v - u0;
+
+save('Tanktest.mat')
